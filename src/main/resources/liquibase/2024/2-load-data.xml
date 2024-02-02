@@ -1,0 +1,86 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="LoadData_Airlines" author="joel.mouritz">
+        <loadData tableName="airlines" file="data/airlines.dat"
+                  separator="," relativeToChangelogFile="true">
+            <column name="alid" type="int"/>
+            <column name="name" type="string"/>
+            <column name="alias" type="string"/>
+            <column name="iata" type="string"/>
+            <column name="icao" type="string"/>
+            <column name="callsign" type="string"/>
+            <column name="country" type="string"/>
+            <column name="active" type="string"/>
+        </loadData>
+    </changeSet>
+    <changeSet id="LoadData_Airports" author="joel.mouritz">
+        <loadData tableName="airports" file="data/airports.dat"
+                  separator="," relativeToChangelogFile="true">
+            <column name="alid" type="int"/>
+            <column name="name" type="string"/>
+            <column name="city" type="string"/>
+            <column name="country" type="string"/>
+            <column name="iata" type="string"/>
+            <column name="icao" type="string"/>
+            <column name="y" type="double"/>
+            <column name="x" type="double"/>
+            <column name="elevation" type="string"/>
+            <column name="timezone" type="float"/>
+            <column name="dst" type="string"/>
+            <column name="tz_id" type="string"/>
+            <column name="region" type="skip"/>
+            <column name="airport" type="skip"/>
+        </loadData>
+    </changeSet>
+    <changeSet id="LoadData_Routes" author="joel.mouritz">
+        <loadData tableName="routes" file="data/routes.dat"
+                  separator="," relativeToChangelogFile="true">
+            <column name="airline" type="string"/>
+            <column name="alid" type="int"/>
+            <column name="src_ap" type="string"/>
+            <column name="src_apid" type="int"/>
+            <column name="dst_ap" type="string"/>
+            <column name="dst_apid" type="int"/>
+            <column name="codeshare" type="string"/>
+            <column name="stops" type="string"/>
+            <column name="equipment" type="string"/>
+        </loadData>
+    </changeSet>
+    <changeSet id="LoadData_Countries" author="joel.mouritz">
+        <loadData tableName="countries" file="data/countries.dat"
+                  separator="," relativeToChangelogFile="true">
+            <column name="name" type="string"/>
+            <column name="iso_code" type="string"/>
+            <column name="dafif_code" type="string"/>
+        </loadData>
+    </changeSet>
+    <changeSet id="LoadData_Planes" author="joel.mouritz">
+        <loadData tableName="planes" file="data/planes.dat"
+                  separator="," relativeToChangelogFile="true">
+            <column name="name" type="string"/>
+            <column name="iata" type="string"/>
+            <column name="icao" type="string"/>
+        </loadData>
+    </changeSet>
+    <changeSet id="LoadData_Locales" author="joel.mouritz">
+        <loadData tableName="locales" file="data/locales.dat"
+                  separator="," relativeToChangelogFile="true">
+            <column name="locale" type="string"/>
+            <column name="name" type="string"/>
+        </loadData>
+    </changeSet>
+    <changeSet id="LoadData_AirportsDafif" author="joel.mouritz">
+        <loadData tableName="airports_dafif" file="data/airports-dafif.dat"
+                  separator="," relativeToChangelogFile="true">
+            <column name="code" type="string"/>
+            <column name="name" type="string"/>
+            <column name="icao" type="string"/>
+            <column name="iata" type="string"/>
+            <column name="y" type="double"/>
+            <column name="x" type="double"/>
+            <column name="elevation" type="int"/>
+        </loadData>
+    </changeSet>
+</databaseChangeLog>
