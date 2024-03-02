@@ -36,12 +36,6 @@ dependencies {
     implementation("org.neo4j:neo4j:5.16.0") {
         exclude(group = "org.neo4j", module = "neo4j-slf4j-provider")
     }
-    // Neo4j algo plugins
-    // implementation("org.neo4j:neo4j-graph-algo:5.16.0")
-    // Neo4j gds plugins
-    // implementation("org.neo4j.gds:neo4j-api:2.6.0")
-    // implementation("org.neo4j.gds:core:2.6.0")
-    implementation("org.neo4j.gds:proc:2.6.0")
     // DB liquibase
     implementation("org.liquibase:liquibase-core")
     runtimeOnly("com.mysql:mysql-connector-j")

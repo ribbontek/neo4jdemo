@@ -1,7 +1,6 @@
 package com.ribbontek.neo4jdemo.config
 
 import jakarta.persistence.EntityManagerFactory
-import org.neo4j.configuration.GraphDatabaseSettings
 import org.neo4j.configuration.connectors.BoltConnector
 import org.neo4j.configuration.helpers.SocketAddress
 import org.neo4j.dbms.api.DatabaseManagementService
@@ -37,9 +36,6 @@ class AppConfig(
         return DatabaseManagementServiceBuilder(Path("app/neo4j"))
             .setConfig(BoltConnector.enabled, true)
             .setConfig(BoltConnector.listen_address, SocketAddress("localhost", neo4jPort))
-            // Couldn't get this config working with an embedded neo4j instance with gds plugins by unzipping the jar & adding under app/neo4j/plugins
-            .setConfig(GraphDatabaseSettings.procedure_allowlist, listOf("apoc.coll.*", "apoc.load.*", "gds.*"))
-            .setConfig(GraphDatabaseSettings.procedure_unrestricted, listOf("algo.*"))
             .build()
     }
 
